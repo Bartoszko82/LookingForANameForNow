@@ -1,3 +1,17 @@
-DROP SCHEMA IF EXISTS `hb-03-one-to-many`;
+DROP SCHEMA IF EXISTS `pointsDoMatter`;
 
-CREATE SCHEMA `hb-03-one-to-many;
+CREATE SCHEMA `pointsDoMatter;
+
+DROP TABLE IF EXISTS `game`;
+CREATE TABLE `game` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`name` varchar(45) NOT NULL DEFAULT 'New Game',
+`date` DATETIME NOT NULL DEFAULT SYSDATE(),
+`game_result_id' int(11) DAFAULT NULL,
+
+PRIMARY KEY (`id`),
+CONSTRAINT `FK_DETAIL` FOREIGN KEY (`game_result_id`)
+REFERENCES `game_result` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+
