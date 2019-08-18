@@ -14,11 +14,23 @@ PRIMARY KEY (`id`),
 DROP TABLE IF EXISTS `game_result`;
 CREATE TABLE `game_result` (
 `id` int(11) NOT NULL AUTO_INCREMENT,
-`user` varchar(45) NOT NULL,
+`user` varchar(45) NOT NULL, 
 `points` varchar(45) NOT NULL,
 `game_id` int(11) NOT NULL, 
 
 PRIMARY KEY (`id`),
-CONSTRAINT `FK_GAME` FOREIGN KEY (`game_id`)
+CONSTRAINT `FK_RESULT_TO_GAME` FOREIGN KEY (`game_id`)
+REFERENCES `game` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `round`;
+CREATE TABLE `round` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`name` varchar(255) NOT NULL DEFAULT 'Round',
+`number_in_sequence` int(11) NOT NULL,
+`game_id` int(11) NOT NULL, 
+
+PRIMARY KEY (`id`),
+CONSTRAINT `FK_ROUND_TO_GAME` FOREIGN KEY (`game_id`)
 REFERENCES `game` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
