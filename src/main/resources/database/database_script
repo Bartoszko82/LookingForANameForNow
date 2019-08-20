@@ -6,6 +6,7 @@ CREATE TABLE `game` (
 `id` int(11) NOT NULL AUTO_INCREMENT,
 `name` varchar(255) NOT NULL DEFAULT 'New Game',
 `date` DATETIME NOT NULL DEFAULT SYSDATE(),
+`game_type_id` int(11) NOT NULL,
 PRIMARY KEY (`id`),
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
