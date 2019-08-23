@@ -15,7 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
-import test.Course;
+
 
 @Data
 @Entity
@@ -38,9 +38,9 @@ public class Game {
 	private GameType gameType;
 	
 	@OneToMany(mappedBy="game")
-	private List<GameResult> gameResult;
+	private List<GameResult> gameResults;
 	
-	private List<User> users; //rethink - could be taken from gameResult
+	private List<User> users; //rethink - users are in gameResults
 	
 	@OneToMany(mappedBy="game")
 	private List<Round> rounds;
@@ -54,7 +54,11 @@ public class Game {
 	}
 
 	public void addGameResult(GameResult gameResult) {
-		//TOD
+		if (gameResults == null) {
+			gameResults = new ArrayList<>();
+		}
+		gameResults.add(gameResult);
+		gameResult.setGame(this);
 	}
   
 	public void addRound(Round round) {
