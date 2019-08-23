@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.Getter;
 
 @Entity
 @Table(name="round")
@@ -22,7 +23,7 @@ public class Round {
 	private int id;
 	
 	@Column(name="name")
-	private String name;
+	@Getter private String name;
 	
 	@Column(name="number_in_sequence")
 	private int number_in_sequence;
@@ -36,10 +37,6 @@ public class Round {
 	public Round(String name, int number_in_sequence, Game game) {
 		this.name = name;
 		this.number_in_sequence = number_in_sequence;
-		this.game = game;
-	}
-	
-	public void setGame(Game game) {
 		this.game = game;
 	}
 	
