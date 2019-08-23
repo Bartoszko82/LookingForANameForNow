@@ -55,9 +55,10 @@ public class Game {
 		//TOD
 	}
   
-	public void addREound(Round round) {
+	public void addRound(Round round) {
 		//TODO
 	}
+	
 	
 	
 }
