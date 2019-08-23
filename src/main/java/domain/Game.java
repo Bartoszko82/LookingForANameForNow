@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -14,6 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
+import test.Course;
 
 @Data
 @Entity
@@ -56,9 +58,10 @@ public class Game {
 	}
   
 	public void addRound(Round round) {
-		//TODO
+			if (rounds == null) {
+				rounds = new ArrayList<>();
+			}
+			rounds.add(round);
+			round.setGame(this);
 	}
-	
-	
-	
 }

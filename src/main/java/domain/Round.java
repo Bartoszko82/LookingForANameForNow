@@ -39,4 +39,8 @@ public class Round {
 		this.game = game;
 	}
 	
+	public void setGame(Game game) {
+		this.game = game;
+	}
+	
 }
