@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -18,6 +19,9 @@ public class UserBasicStatistic {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
+	
+	@OneToOne(mappedBy="user_user_statistics_id")
+	private User user;
 	
 	@Column(name="games_played")
 	private int gamesPlayed;
