@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -19,7 +21,9 @@ public class User {
 	
 	private Date joinDate; //TODO add to DB
 	
-	private List<UserStatistic> userStatistics;
+	@OneToMany
+	@JoinColumn(name="user_id")
+	private List<UserBasicStatistic> userBasicStatistics;
 	
 	public User () {}
 	
