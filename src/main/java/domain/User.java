@@ -1,11 +1,10 @@
 package domain;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -21,9 +20,9 @@ public class User {
 	
 	private Date joinDate; //TODO add to DB
 	
-	@OneToMany
+	@OneToOne
 	@JoinColumn(name="user_id")
-	private List<UserBasicStatistic> userBasicStatistics;
+	private UserBasicStatistic userBasicStatistic;
 	
 	public User () {}
 	
