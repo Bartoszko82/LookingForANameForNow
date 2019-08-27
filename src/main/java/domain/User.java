@@ -21,7 +21,7 @@ public class User {
 	private Date joinDate; //TODO add to DB
 	
 	@OneToOne
-	@JoinColumn(name="user_id")
+	@JoinColumn(name="user_basic_statistic_id")
 	private UserBasicStatistic userBasicStatistic;
 	
 	public User () {}
