@@ -12,6 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -38,11 +40,17 @@ public class Game {
 	@JoinColumn(name = "game_type_id")
 	private GameType gameType;
 
-	// @OneToMany(mappedBy="game")
-	// private List<GameResult> gameResults;
+//	@OneToMany(mappedBy="game")
+//	private List<GameResult> gameResults;
 
-	private List<User> users; // rethink - users are in gameResults
-
+//	private List<User> users; // rethink - users are in gameResults
+	
+	@ManyToMany
+	@JoinTable(name="game_team", 
+	joinColumns=@JoinColumn(name="game_id"),
+	inverseJoinColumns=@JoinColumn(name="team_id"))
+	private List<Team> teams;
+	
 	@OneToMany(mappedBy = "game")
 	private List<Round> rounds;
 
