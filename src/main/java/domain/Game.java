@@ -37,8 +37,8 @@ public class Game {
 	@JoinColumn(name="game_type_id")
 	private GameType gameType;
 	
-	@OneToMany(mappedBy="game")
-	private List<GameResult> gameResults;
+//	@OneToMany(mappedBy="game")
+//	private List<GameResult> gameResults;
 	
 	private List<User> users; //rethink - users are in gameResults
 	
