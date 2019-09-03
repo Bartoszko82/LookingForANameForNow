@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,41 +18,46 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
-
 @Data
 @Entity
-@Table(name="game")
+@Table(name = "game")
 public class Game {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
+	@Column(name = "id")
 	private int id;
-	
-	@Column(name="name")
+
+	@Column(name = "name")
 	private String name;
-	
-	@Column(name="date")
+
+	@Column(name = "date")
 	private Date date;
-	
+
 	@ManyToOne
-	@JoinColumn(name="game_type_id")
+	@JoinColumn(name = "game_type_id")
 	private GameType gameType;
-	
-//	@OneToMany(mappedBy="game")
-//	private List<GameResult> gameResults;
-	
-	private List<User> users; //rethink - users are in gameResults
-	
-	@OneToMany(mappedBy="game")
+
+	// @OneToMany(mappedBy="game")
+	// private List<GameResult> gameResults;
+
+	private List<User> users; // rethink - users are in gameResults
+
+	@OneToMany(mappedBy = "game")
 	private List<Round> rounds;
-	
-	public Game () {};
-	
-	public Game (String name, Date date, GameType gameType) {
+
+	@Enumerated(EnumType.STRING)
+	@Column(name = "game_state")
+	private GameState gameState;
+
+	public Game() {
+	};
+
+	public Game(String name, Date date, GameType gameType) {
 		this.name = name;
 		this.date = date;
 		this.gameType = gameType;
+		this.gameState = GameState.ONGOING;
 	}
 
 	public void addGameResult(GameResult gameResult) {
@@ -60,12 +67,12 @@ public class Game {
 		gameResults.add(gameResult);
 		gameResult.setGame(this);
 	}
-  
+
 	public void addRound(Round round) {
-			if (rounds == null) {
-				rounds = new ArrayList<>();
-			}
-			rounds.add(round);
-			round.setGame(this);
+		if (rounds == null) {
+			rounds = new ArrayList<>();
+		}
+		rounds.add(round);
+		round.setGame(this);
 	}
 }
