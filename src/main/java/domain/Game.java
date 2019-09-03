@@ -60,13 +60,13 @@ public class Game {
 		this.gameState = GameState.ONGOING;
 	}
 
-	public void addGameResult(GameResult gameResult) {
-		if (gameResults == null) {
-			gameResults = new ArrayList<>();
-		}
-		gameResults.add(gameResult);
-		gameResult.setGame(this);
-	}
+//	public void addGameResult(GameResult gameResult) {
+//		if (gameResults == null) {
+//			gameResults = new ArrayList<>();
+//		}
+//		gameResults.add(gameResult);
+//		gameResult.setGame(this);
+//	}
 
 	public void addRound(Round round) {
 		if (rounds == null) {
