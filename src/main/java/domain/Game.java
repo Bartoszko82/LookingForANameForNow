@@ -40,6 +40,10 @@ public class Game {
 	@JoinColumn(name = "game_type_id")
 	private GameType gameType;
 
+	@Enumerated(EnumType.STRING)
+	@Column(name = "game_state")
+	private GameState gameState;
+	
 //	@OneToMany(mappedBy="game")
 //	private List<GameResult> gameResults;
 
@@ -54,9 +58,6 @@ public class Game {
 	@OneToMany(mappedBy = "game")
 	private List<Round> rounds;
 
-	@Enumerated(EnumType.STRING)
-	@Column(name = "game_state")
-	private GameState gameState;
 
 	public Game() {
 	};
@@ -76,11 +77,11 @@ public class Game {
 //		gameResult.setGame(this);
 //	}
 
-	public void addRound(Round round) {
-		if (rounds == null) {
-			rounds = new ArrayList<>();
-		}
-		rounds.add(round);
-		round.setGame(this);
-	}
+//	public void addRound(Round round) {
+//		if (rounds == null) {
+//			rounds = new ArrayList<>();
+//		}
+//		rounds.add(round);
+//		round.setGame(this);
+//	}
 }
