@@ -25,19 +25,18 @@ public class GameType {
 	@Column(name="name")
 	private String typeName;
 	
-	
 	@OneToOne
-	@JoinColumn(name="type_setting_id")
-	private TypeSetting typeSetting;
+	@JoinColumn(name="type_settings_id")
+	private TypeSetting typeSettings;
 	
 	@OneToMany(mappedBy="gameType")
 	private Game game;
 	
 	public GameType() {}
 	
-	public GameType(String typeName, TypeSetting typeSetting) {
+	public GameType(String typeName, TypeSetting typeSettings) {
 		this.typeName = typeName;
-		this.typeSetting = typeSetting;
+		this.typeSettings = typeSettings;
 	}
 	
 }
