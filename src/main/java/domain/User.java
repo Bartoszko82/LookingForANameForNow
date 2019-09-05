@@ -1,9 +1,12 @@
 package domain;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -23,6 +26,12 @@ public class User {
 	@OneToOne
 	@JoinColumn(name="user_basic_statistic_id")
 	private UserBasicStatistic userBasicStatistic;
+	
+	@ManyToMany
+	@JoinTable(name="user_team", 
+	joinColumns=@JoinColumn(name="user_id"),
+	inverseJoinColumns=@JoinColumn(name="team_id"))
+	private List<User> users;
 	
 	public User () {}
 	

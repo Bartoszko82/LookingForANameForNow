@@ -34,8 +34,10 @@ public class Team {
 	inverseJoinColumns=@JoinColumn(name="game_id"))
 	private List<Game> games;
 	
-	@OneToMany
-	//TODO - add mapping
+	@ManyToMany
+	@JoinTable(name="user_team", 
+	joinColumns=@JoinColumn(name="team_id"),
+	inverseJoinColumns=@JoinColumn(name="user_id"))
 	private List<User> users;
 	
 	public Team() {};
