@@ -24,8 +24,8 @@ public class User {
 	private Date joinDate; //TODO add to DB
 	
 	@OneToOne
-	@JoinColumn(name="user_basic_statistic_id")
-	private UserBasicStatistic userBasicStatistic;
+	@JoinColumn(name="user_basic_statistics_id")
+	private UserBasicStatistics userBasicStatistics;
 	
 	@ManyToMany
 	@JoinTable(name="user_team", 

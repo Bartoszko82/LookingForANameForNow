@@ -13,7 +13,7 @@ import lombok.Data;
 @Entity
 @Table(name="user_basic_statistic")
 @Data
-public class UserBasicStatistic {
+public class UserBasicStatistics {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -29,6 +29,6 @@ public class UserBasicStatistic {
 	@Column(name="gamesWon")
 	private int gamesWon; 
 	
-	public UserBasicStatistic() {};
+	public UserBasicStatistics() {};
 }
 
