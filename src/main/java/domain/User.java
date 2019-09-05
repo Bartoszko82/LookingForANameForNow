@@ -31,7 +31,7 @@ public class User {
 	@JoinTable(name="user_team", 
 	joinColumns=@JoinColumn(name="user_id"),
 	inverseJoinColumns=@JoinColumn(name="team_id"))
-	private List<User> users;
+	private List<Team> teams;
 	
 	public User () {}
 	
