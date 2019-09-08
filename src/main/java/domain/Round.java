@@ -23,7 +23,7 @@ public class Round {
 	private int id;
 	
 	@Column(name="name")
-	@Getter private String name;
+	private String name;
 	
 	@Column(name="number_in_sequence")
 	private int number_in_sequence;
