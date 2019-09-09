@@ -17,7 +17,7 @@ import lombok.Data;
 @Entity
 @Table(name="game_type_property")
 @Data
-public class TypeSettings {
+public class GameTypeProperty {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
