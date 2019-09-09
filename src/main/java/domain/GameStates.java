@@ -1,5 +1,5 @@
 package domain;
 
-public enum GameState {
+public enum GameStates {
 	ONGOING ,FINISHED
 }

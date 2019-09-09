@@ -42,7 +42,7 @@ public class Game {
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "game_state")
-	private GameState gameState;
+	private GameStates gameState;
 	
 //	@OneToMany(mappedBy="game")
 //	private List<GameResult> gameResults;
@@ -66,7 +66,7 @@ public class Game {
 		this.name = name;
 		this.date = date;
 		this.gameType = gameType;
-		this.gameState = GameState.ONGOING;
+		this.gameState = GameStates.ONGOING;
 	}
 
 //	public void addGameResult(GameResult gameResult) {
