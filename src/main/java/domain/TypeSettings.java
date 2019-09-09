@@ -15,7 +15,7 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name="type_settings")
+@Table(name="game_type_property")
 @Data
 public class TypeSettings {
 
