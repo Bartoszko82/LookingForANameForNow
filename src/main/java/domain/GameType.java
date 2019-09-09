@@ -39,9 +39,9 @@ public class GameType {
 	
 	public GameType() {}
 	
-	public GameType(String typeName, GameTypeProperty typeSettings) {
+	public GameType(String typeName, List<GameTypeProperty> gameTypeProperties) {
 		this.typeName = typeName;
-		this.typeSettings = typeSettings;
+		this.gameTypeProperties = gameTypeProperties;
 	}
 	
 }
