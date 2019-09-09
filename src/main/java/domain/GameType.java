@@ -1,13 +1,16 @@
 package domain;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -25,9 +28,11 @@ public class GameType {
 	@Column(name="name")
 	private String typeName;
 	
-	@OneToOne
-	@JoinColumn(name="type_settings_id")
-	private GameTypeProperty typeSettings;
+	@ManyToMany
+	@JoinTable(name="type_property", 
+	joinColumns=@JoinColumn(name="game_type_id"),
+	inverseJoinColumns=@JoinColumn(name="game_type_property_id"))
+	private List<GameTypeProperty> gameTypeProperties;
 	
 	@OneToMany(mappedBy="gameType")
 	private Game game;
