@@ -1,0 +1,10 @@
+package domain;
+
+public enum GameTypePropertyKeys {
+	POINTS_TO_WIN_GAME,
+	REQUIRED_ADVANTAGE,
+	NUMBER_OF_ROUNDS,
+	NUMBER_OF_SETS,
+	NUMBER_OF_TEAMS,
+	NUMBER_OF_USERS_IN_TEAM,
+}
