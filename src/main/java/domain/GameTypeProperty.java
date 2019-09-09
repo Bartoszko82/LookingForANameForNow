@@ -38,4 +38,11 @@ public class GameTypeProperty {
 	joinColumns=@JoinColumn(name="game_type_property_id"),
 	inverseJoinColumns=@JoinColumn(name="game_type_id"))
 	private List<GameType> gameTypes;
+	
+	public GameTypeProperty() {}
+	
+	public GameTypeProperty(GameTypePropertyKeys key, String value) {
+		this.key = key;
+		this.value = value;
+	}
 }
