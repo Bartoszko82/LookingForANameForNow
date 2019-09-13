@@ -27,6 +27,10 @@ public class User {
 	@JoinColumn(name="user_basic_statistics_id")
 	private UserBasicStatistics userBasicStatistics;
 	
+	@OneToOne
+	@JoinColumn(name="user_details_id")
+	private UserDetails userDetails;
+		
 	@ManyToMany
 	@JoinTable(name="user_team", 
 	joinColumns=@JoinColumn(name="user_id"),
