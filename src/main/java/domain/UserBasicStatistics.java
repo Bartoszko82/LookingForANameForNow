@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name="user_basic_statistic")
+@Table(name="user_basic_statistics")
 @Data
 public class UserBasicStatistics {
 
@@ -20,14 +20,14 @@ public class UserBasicStatistics {
 	@Column(name="id")
 	private int id;
 	
-	@OneToOne(mappedBy="userBasicStatistic")
-	private User user;
-	
 	@Column(name="games_played")
 	private int gamesPlayed;
 	
-	@Column(name="gamesWon")
+	@Column(name="games_won")
 	private int gamesWon; 
+
+	@OneToOne(mappedBy="userBasicStatistic")
+	private User user;	
 	
 	public UserBasicStatistics() {};
 }
