@@ -36,13 +36,13 @@ public class Game {
 	@Column(name = "date")
 	private Date date;
 
-	@ManyToOne
-	@JoinColumn(name = "game_type_id")
-	private GameType gameType;
-
 	@Enumerated(EnumType.STRING)
 	@Column(name = "game_state")
 	private GameStates gameState;
+	
+	@ManyToOne
+	@JoinColumn(name = "game_type_id")
+	private GameType gameType;
 	
 //	@OneToMany(mappedBy="game")
 //	private List<GameResult> gameResults;
