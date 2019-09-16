@@ -50,7 +50,7 @@ public class Game {
 //	private List<User> users; // rethink - users are in gameResults
 	
 	@ManyToMany
-	@JoinTable(name="game_team", 
+	@JoinTable(name="game_team_join", 
 	joinColumns=@JoinColumn(name="game_id"),
 	inverseJoinColumns=@JoinColumn(name="team_id"))
 	private List<Team> teams;

@@ -26,7 +26,7 @@ public class UserBasicStatistics {
 	@Column(name="games_won")
 	private int gamesWon; 
 
-	@OneToOne(mappedBy="userBasicStatistic")
+	@OneToOne(mappedBy="userBasicStatistics")
 	private User user;	
 	
 	public UserBasicStatistics() {};

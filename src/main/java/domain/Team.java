@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name="teams")
+@Table(name="team")
 @Data
 public class Team {
 
@@ -29,13 +29,13 @@ public class Team {
 	private String name;
 	
 	@ManyToMany
-	@JoinTable(name="games_teams", 
+	@JoinTable(name="game_team_join", 
 	joinColumns=@JoinColumn(name="team_id"),
 	inverseJoinColumns=@JoinColumn(name="game_id"))
 	private List<Game> games;
 	
 	@ManyToMany
-	@JoinTable(name="users_teams", 
+	@JoinTable(name="user_team_join", 
 	joinColumns=@JoinColumn(name="team_id"),
 	inverseJoinColumns=@JoinColumn(name="user_id"))
 	private List<User> users;
