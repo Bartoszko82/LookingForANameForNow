@@ -20,6 +20,15 @@ public class UserDetails {
 	@Column(name="id")
 	private int id;
 	
+	@Column(name="name")
+	private String name;
+	
+	@Column(name="surname")
+	private String surname;
+	
+	@Column(name="telephone")
+	private String telephone;
+	
 	@Column(name="email")
 	private String email;
 	
@@ -29,11 +38,7 @@ public class UserDetails {
 	@OneToOne(mappedBy="userDetails")
 	private User user;
 	
-	public UserDetails () {};
-	
-	public UserDetails (String email) {
-		this.email = email;
+	public UserDetails () {
 		this.active = true;
-	}
- 	
+	};
 }
