@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name="team")
+@Table(name="teams")
 @Data
 public class Team {
 
