@@ -28,10 +28,7 @@ public class GameType {
 	@Column(name="name")
 	private String typeName;
 	
-	@ManyToMany
-	@JoinTable(name="type_property", 
-	joinColumns=@JoinColumn(name="game_type_id"),
-	inverseJoinColumns=@JoinColumn(name="game_type_property_id"))
+	@OneToMany(mappedBy="gameType")
 	private List<GameTypeProperty> gameTypeProperties;
 	
 	@OneToMany(mappedBy="gameType")
