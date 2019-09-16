@@ -32,7 +32,7 @@ public class GameType {
 	private List<GameTypeProperty> gameTypeProperties;
 	
 	@OneToMany(mappedBy="gameType")
-	private Game game;
+	private List<Game> games;
 	
 	public GameType() {}
 	
