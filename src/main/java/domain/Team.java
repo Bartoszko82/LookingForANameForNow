@@ -29,13 +29,13 @@ public class Team {
 	private String name;
 	
 	@ManyToMany
-	@JoinTable(name="game_team", 
+	@JoinTable(name="games_teams", 
 	joinColumns=@JoinColumn(name="team_id"),
 	inverseJoinColumns=@JoinColumn(name="game_id"))
 	private List<Game> games;
 	
 	@ManyToMany
-	@JoinTable(name="user_team", 
+	@JoinTable(name="users_teams", 
 	joinColumns=@JoinColumn(name="team_id"),
 	inverseJoinColumns=@JoinColumn(name="user_id"))
 	private List<User> users;
