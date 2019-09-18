@@ -40,6 +40,10 @@ public class Team {
 	inverseJoinColumns=@JoinColumn(name="user_id"))
 	private List<User> users;
 	
+	@OneToMany
+	@JoinColumn(name="round_score_id")
+	private List<RoundScore> roundScores;
+	
 	public Team() {};
 	
 	public Team(String name, List<User> users) {
