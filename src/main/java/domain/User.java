@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -45,6 +46,10 @@ public class User {
 	joinColumns=@JoinColumn(name="user_id"),
 	inverseJoinColumns=@JoinColumn(name="team_id"))
 	private List<Team> teams;
+	
+	@OneToMany
+	@JoinColumn(name="round_score_id")
+	private List<RoundScore> roundScores;
 	
 	public User () {}
 	
