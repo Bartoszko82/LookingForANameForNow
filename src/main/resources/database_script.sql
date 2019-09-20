@@ -1,0 +1,144 @@
+DROP SCHEMA IF EXISTS `points_do_matter`;
+CREATE SCHEMA `points_do_matter`;
+
+USE `points_do_matter`;
+
+SET FOREIGN_KEY_CHECKS = 0;
+
+DROP TABLE IF EXISTS `game`;
+CREATE TABLE `game` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(255) NOT NULL DEFAULT 'New Game',
+    `date` DATETIME NOT NULL DEFAULT NOW(),
+    `game_state` VARCHAR(255) NOT NULL,
+    `game_type_id` INT(11) NOT NULL,
+    PRIMARY KEY (`id`),
+    CONSTRAINT `FK_TYPE_IN_GAMES` FOREIGN KEY (`game_type_id`)
+        REFERENCES `game_type` (`id`)
+)  ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=UTF8MB4;
+
+
+DROP TABLE IF EXISTS `round`;
+CREATE TABLE `round` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `ordinal_number` INT(11) NOT NULL,
+    `game_id` INT(11) NOT NULL,
+    PRIMARY KEY (`id`),
+    CONSTRAINT `FK_GAME_IN_ROUND` FOREIGN KEY (`game_id`)
+        REFERENCES `game` (`id`)
+)  ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+DROP TABLE IF EXISTS `round_score`;
+CREATE TABLE `round_score` (
+`id` INT(11) NOT NULL AUTO_INCREMENT,
+`points` INT(11) NOT NULL DEFAULT 0,
+`team_id` INT(11),
+`user_id` INT(11),
+`round_id` INT(11) NOT NULL,
+PRIMARY KEY (`id`),
+CONSTRAINT `FK_TEAM_IN_ROUND_SCORE` FOREIGN KEY (`team_id`)
+REFERENCES `team` (`id`),
+CONSTRAINT `FK_USER_IN_ROUND_SCORE` FOREIGN KEY (`user_id`)
+REFERENCES `user` (`id`),
+CONSTRAINT `FK_ROUND_IN_ROUND_SCORE` FOREIGN KEY (`round_id`)
+REFERENCES `round` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+DROP TABLE IF EXISTS `round_property`;
+CREATE TABLE `round_property` (
+`id` INT(11) NOT NULL AUTO_INCREMENT,
+`key` VARCHAR(255) NOT NULL,
+`value` INT(11) NOT NULL,
+`round_id` INT(11) NOT NULL,
+PRIMARY KEY (`id`),
+CONSTRAINT `FK_ROUND_IN_ROUND_PROPERTY` FOREIGN KEY (`round_id`)
+REFERENCES `round` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+DROP TABLE IF EXISTS `game_type`; 
+CREATE TABLE `game_type` (
+`id` INT(11) NOT NULL AUTO_INCREMENT,
+`name` VARCHAR(255) NOT NULL,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+DROP TABLE IF EXISTS `game_type_property`;
+CREATE TABLE `game_type_property` (
+`id` INT(11) NOT NULL AUTO_INCREMENT,
+`key` VARCHAR(255) NOT NULL,
+`value` VARCHAR(255) NOT NULL,
+`game_type_id` INT(11) NOT NULL,
+PRIMARY KEY (`id`),
+CONSTRAINT `FK_TYPE_IN_PROPERTIES` FOREIGN KEY (`game_type_id`)
+REFERENCES `game_type` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+DROP TABLE IF EXISTS `user`; 
+CREATE TABLE `user` (
+`id` INT(11) NOT NULL AUTO_INCREMENT,
+`login` VARCHAR(255) NOT NULL,
+`join_date` DATETIME NOT NULL,
+`user_details_id` INT(11) NOT NULL,
+`user_basic_statistics_id` INT(11) NOT NULL,
+`round_score_id` INT(11),
+PRIMARY KEY (`id`),
+CONSTRAINT `FK_DETAILS_IN_USER` FOREIGN KEY (`user_details_id`)
+REFERENCES `user_details` (`id`),
+CONSTRAINT `FK_STATISTICS_IN_USER` FOREIGN KEY (`user_basic_statistics_id`)
+REFERENCES `user_basic_statistics` (`id`),
+CONSTRAINT `FK_ROUND_SCORE_IN_USER` FOREIGN KEY (`round_score_id`)
+REFERENCES `round_score` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+DROP TABLE IF EXISTS `user_basic_statistics`;
+CREATE TABLE `user_basic_statistics` (
+`id` INT(11) NOT NULL AUTO_INCREMENT,
+`games_played`INT(11),
+`games_won`INT(11),
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+DROP TABLE IF EXISTS `user_details`; 
+CREATE TABLE `user_details` (
+`id` INT(11) NOT NULL AUTO_INCREMENT,
+`name` VARCHAR(255),
+`surname` VARCHAR(255),
+`telephone` VARCHAR(255),
+`email` VARCHAR(255),
+`active` BOOLEAN NOT NULL DEFAULT 'false'
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+DROP TABLE IF EXISTS `team`;
+CREATE TABLE `team` (
+`id` INT(11) NOT NULL AUTO_INCREMENT,
+`name` VARCHAR(255) NOT NULL,
+`round_score_id` INT(11),
+PRIMARY KEY(`id`),
+CONSTRAINT `FK_ROUND_SCORE_IN_TEAM` FOREIGN KEY (`round_score_id`)
+REFERENCES `round_score` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+DROP TABLE IF EXISTS `user_team_join`;
+CREATE TABLE `user_team` (
+`user_id` INT(11) NOT NULL,
+`team_id` INT(11) NOT NULL,
+PRIMARY KEY (`user_id`,`team_id`),
+CONSTRAINT `FK_USER_IN_USER_TEAM` FOREIGN KEY (`user_id`) 
+REFERENCES `user` (`id`), 
+CONSTRAINT `FK_TEAM_IN_USER_TEAM` FOREIGN KEY (`team_id`) 
+REFERENCES `team` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+DROP TABLE IF EXISTS `game_team_join`;
+CREATE TABLE `game_team` (
+`game_id` INT(11) NOT NULL,
+`team_id` INT(11) NOT NULL,
+PRIMARY KEY (`game_id`,`team_id`),
+CONSTRAINT `FK_GAME_IN_GAME_TEAM` FOREIGN KEY (`game_id`) 
+REFERENCES `game` (`id`), 
+CONSTRAINT `FK_TEAM_IN_GAME_TEAM` FOREIGN KEY (`team_id`) 
+REFERENCES `team` (`id`) 
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+
+SET FOREIGN_KEY_CHECKS = 1;
