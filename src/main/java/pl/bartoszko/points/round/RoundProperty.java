@@ -1,4 +1,4 @@
-package domain;
+package pl.bartoszko.points.round;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

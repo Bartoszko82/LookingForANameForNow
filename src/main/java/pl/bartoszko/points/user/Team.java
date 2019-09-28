@@ -1,4 +1,4 @@
-package domain;
+package pl.bartoszko.points.user;
 
 import java.util.List;
 
@@ -14,6 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
+import pl.bartoszko.points.game.Game;
+import pl.bartoszko.points.round.RoundScore;
 
 @Entity
 @Table(name="team")

@@ -1,4 +1,4 @@
-package domain;
+package pl.bartoszko.points.user;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

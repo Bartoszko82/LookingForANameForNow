@@ -1,4 +1,4 @@
-package domain;
+package pl.bartoszko.points.round;
 
 import java.util.List;
 
@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
+import pl.bartoszko.points.game.Game;
 
 @Entity
 @Table(name="round")

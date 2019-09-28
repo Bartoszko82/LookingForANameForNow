@@ -1,4 +1,4 @@
-package domain;
+package pl.bartoszko.points.game;
 
 import java.util.List;
 

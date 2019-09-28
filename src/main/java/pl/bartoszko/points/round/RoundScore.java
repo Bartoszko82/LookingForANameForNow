@@ -1,4 +1,4 @@
-package domain;
+package pl.bartoszko.points.round;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
+import pl.bartoszko.points.user.Team;
+import pl.bartoszko.points.user.User;
 
 @Entity
 @Table(name = "round_score")

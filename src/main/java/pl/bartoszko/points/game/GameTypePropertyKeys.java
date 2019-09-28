@@ -1,4 +1,4 @@
-package domain;
+package pl.bartoszko.points.game;
 
 public enum GameTypePropertyKeys {
 	POINTS_TO_WIN_GAME,

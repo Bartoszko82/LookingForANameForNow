@@ -105,7 +105,8 @@ CREATE TABLE `user_details` (
 `surname` VARCHAR(255),
 `telephone` VARCHAR(255),
 `email` VARCHAR(255),
-`active` BOOLEAN NOT NULL DEFAULT 'false'
+`active` BOOLEAN NOT NULL DEFAULT false,
+PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS `team`;
@@ -119,7 +120,7 @@ REFERENCES `round_score` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS `user_team_join`;
-CREATE TABLE `user_team` (
+CREATE TABLE `user_team_join` (
 `user_id` INT(11) NOT NULL,
 `team_id` INT(11) NOT NULL,
 PRIMARY KEY (`user_id`,`team_id`),
@@ -130,7 +131,7 @@ REFERENCES `team` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS `game_team_join`;
-CREATE TABLE `game_team` (
+CREATE TABLE `game_team_join` (
 `game_id` INT(11) NOT NULL,
 `team_id` INT(11) NOT NULL,
 PRIMARY KEY (`game_id`,`team_id`),
