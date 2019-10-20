@@ -99,7 +99,7 @@ PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS `user_details`; 
-CREATE TABLE `user_details` (
+CREATE TABLE `user_details` (    
 `id` INT(11) NOT NULL AUTO_INCREMENT,
 `name` VARCHAR(255),
 `surname` VARCHAR(255),
