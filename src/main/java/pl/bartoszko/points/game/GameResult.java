@@ -13,8 +13,8 @@ import lombok.Data;
 import pl.bartoszko.points.user.Team;
 import pl.bartoszko.points.user.User;
 
-@Entity
-@Table(name="game_result")
+//@Entity
+//@Table(name="game_result")
 @Data
 public class GameResult {
 
