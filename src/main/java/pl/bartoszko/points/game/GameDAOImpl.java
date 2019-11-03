@@ -1,10 +1,12 @@
 package pl.bartoszko.points.game;
 
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import pl.bartoszko.points.util.AbstractDAO;
 
+@Repository
+@Transactional
 public class GameDAOImpl extends AbstractDAO<Game> implements GameDAO{
 
 	@Override
