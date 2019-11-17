@@ -5,7 +5,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import pl.bartoszko.points.util.AbstractDAO;
 
-@Repository
+@Repository("gameDAO")
 @Transactional
 public class GameDAOImpl extends AbstractDAO<Game> implements GameDAO{
 
