@@ -14,7 +14,8 @@ CREATE TABLE `game` (
     `game_type_id` INT(11) NOT NULL,
     PRIMARY KEY (`id`),
     CONSTRAINT `FK_TYPE_IN_GAMES` FOREIGN KEY (`game_type_id`)
-        REFERENCES `game_type` (`id`)
+        REFERENCES `game_type` (`id`),
+	CONSTRAINT `UC_Game` UNIQUE (name, date)
 )  ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=UTF8MB4;
 
 
