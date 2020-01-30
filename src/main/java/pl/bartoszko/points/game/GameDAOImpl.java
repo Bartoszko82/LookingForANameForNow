@@ -13,4 +13,9 @@ public class GameDAOImpl extends AbstractDAO<Game> implements GameDAO{
 	public void saveGame(Game game) {
 		persist(game);
 	}
+	
+	@Override
+	public Game getGame (int id) {
+		return getClass(Game.class, id);
+	}
 }
