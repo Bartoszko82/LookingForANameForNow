@@ -17,7 +17,7 @@ public class GameTypeDAOImpl extends AbstractDAO<GameType> implements GameTypeDA
 	
 	@Override
 	public GameType getGameType (int id) {
-		return (GameType) getClass(GameType.class, id);
+		return getClass(GameType.class, id);
 	}
 	
 }
