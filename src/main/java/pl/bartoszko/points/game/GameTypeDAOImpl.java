@@ -1,6 +1,7 @@
 
 package pl.bartoszko.points.game;
 
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,6 +19,13 @@ public class GameTypeDAOImpl extends AbstractDAO<GameType> implements GameTypeDA
 	@Override
 	public GameType getGameType (int id) {
 		return getClass(GameType.class, id);
+	}
+	
+	@Override
+	public GameType getGameType (String gameTypeName) {
+		Query<GameType> query = getSession().createQuery("from GameType where name = :gameTypeName", GameType.class);
+		query.setParameter("gameTypeName", gameTypeName);
+		return query.getSingleResult();
 	}
 	
 }

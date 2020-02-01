@@ -5,5 +5,7 @@ public interface GameTypeDAO {
 	void saveGameType(GameType gameType);
 	
 	GameType getGameType(int id);
+	
+	GameType getGameType(String gameTypeName);
 
 }
