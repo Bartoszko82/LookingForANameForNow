@@ -12,8 +12,8 @@ public class GameService {
 	@Autowired
 	GameDAO gameDAO;
 	
-//	@Autowired
-//	GameTypeService gameTypeService;
+	@Autowired
+	GameTypeService gameTypeService;
 
 	public void addNewGame(String name, Optional<Date> maybeDate, GameType gameType) {
 		Date date = new Date();
@@ -39,12 +39,10 @@ public class GameService {
 			date.setTime(System.currentTimeMillis());
 		}
 		
-		// TODO use GameTypeService to get GameType. 
-		// if no GameType found - create new.		
-				
+		GameType gameType = gameTypeService.getGameType(gameTypeName);		
 		
 		// TODO - check for name-date key added in DB - should it be here as well?
-//		Game game = new Game(name,date,gameType);
-//		gameDAO.saveGame(game);
+		Game game = new Game(name,date,gameType);
+		gameDAO.saveGame(game);
 	}
 }
