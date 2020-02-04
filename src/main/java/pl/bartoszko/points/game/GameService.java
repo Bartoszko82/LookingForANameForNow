@@ -15,16 +15,13 @@ public class GameService {
 	@Autowired
 	GameTypeService gameTypeService;
 
-	public void addNewGame(String name, Optional<Date> maybeDate, GameType gameType) {
+	public void addNewGame(String name, Optional<Date> maybeDate, GameType gameType) { //TODO is that optional even required??
 		Date date = new Date();
 		if (maybeDate.isPresent()) {
 			date = maybeDate.get();
 		} else {
 			date.setTime(System.currentTimeMillis());
 		}
-		
-		// TODO use GameTypeService to get GameType. 
-		// if no GameType found - create new.		
 		
 		// TODO - check for name-date key added in DB - should it be here as well?
 		Game game = new Game(name,date,gameType);
