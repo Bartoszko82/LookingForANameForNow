@@ -2,13 +2,13 @@ package pl.bartoszko.points.game;
 
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -25,19 +25,12 @@ public class GameServiceTest {
 	@Mock
 	GameDAO gameDAO;
 	
-	@Mock
-	GameTypeService gameTypeService;
-	
 	@Test
-	public void newGameShouldBeCreated() {
-		// given
+	public void addNewGameTest() {
 		Game game = createGame("test", "football");
 		
-		//when
-		when(gameTypeService.getGameType("football")).thenReturn(createGameType("football"));
-		gameService.addNewGame("test", Optional.of(getDate()), "football");
+		gameService.addNewGame("test", Optional.of(getDate()), createGameType("football"));
 		
-		//then
 		verify(gameDAO, times(1)).saveGame(game);
 	}
 	
@@ -51,13 +44,6 @@ public class GameServiceTest {
 		List<GameTypeProperty> gameTypeProperties = new ArrayList<>();
 		GameType gameType = new GameType("football", gameTypeProperties);
 		return gameType;
-	}
-	
-	private static Game createGame() {
-		List<GameTypeProperty> gameTypeProperties = new ArrayList<>();
-		GameType gameType = new GameType("football", gameTypeProperties);
-		Game game = new Game("testGame", getDate(), gameType);
-		return game;
 	}
 	
 	private static Game createGame(String gameName, String gameTypeName) {
