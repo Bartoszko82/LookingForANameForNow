@@ -28,18 +28,4 @@ public class GameService {
 		gameDAO.saveGame(game);
 	}
 	
-	public void addNewGame(String name, Optional<Date> maybeDate, String gameTypeName) {
-		Date date = new Date();
-		if (maybeDate.isPresent()) {
-			date = maybeDate.get();
-		} else {
-			date.setTime(System.currentTimeMillis());
-		}
-		
-		GameType gameType = gameTypeService.getGameType(gameTypeName);		
-		
-		// TODO - check for name-date key added in DB - should it be here as well?
-		Game game = new Game(name,date,gameType);
-		gameDAO.saveGame(game);
-	}
 }
