@@ -11,9 +11,6 @@ public class GameService {
 
 	@Autowired
 	GameDAO gameDAO;
-	
-	@Autowired
-	GameTypeService gameTypeService;
 
 	public void addNewGame(String name, Optional<Date> maybeDate, GameType gameType) { //TODO is that optional even required??
 		Date date = new Date();
