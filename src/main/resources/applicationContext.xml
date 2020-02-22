@@ -15,6 +15,8 @@
 	<context:annotation-config />
 	<context:component-scan base-package="pl.bartoszko.points"></context:component-scan>
 
+	<context:property-placeholder location="classpath:application.properties" />
+
 	<tx:annotation-driven />
 
 	<bean id="sessionFactory"
@@ -43,9 +45,8 @@
 		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	
-	<bean id="modelMapper"
-		class="org.modelmapper.ModelMapper">
+
+	<bean id="modelMapper" class="org.modelmapper.ModelMapper">
 	</bean>
 </beans>
 	
