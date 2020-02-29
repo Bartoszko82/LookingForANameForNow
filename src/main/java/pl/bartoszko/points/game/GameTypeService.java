@@ -3,6 +3,8 @@ package pl.bartoszko.points.game;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,14 +13,23 @@ public class GameTypeService {
 
 	@Autowired
 	GameTypeDAO gameTypeDAO;
+	
+	protected final Logger logger = LoggerFactory.getLogger(getClass());
 
 	public void addNewGameType(GameType gameType) {
+		logger.debug(">> addNewGameType(), params: {}", gameType);
 		gameTypeDAO.saveGameType(gameType);
+		logger.trace("saved: {}", gameType);
+		logger.debug("<< addNewGameType()");
 	}
 
 	public void addNewGameType(String gameTypeName, List<GameTypeProperty> gameTypeProperties) {
+		logger.debug(">> addNewGameType(), params: {}, {}", gameTypeName, gameTypeProperties);
 		GameType gameType = new GameType(gameTypeName, gameTypeProperties);
+		logger.trace("creted: {}", gameType);
 		gameTypeDAO.saveGameType(gameType);
+		logger.trace("saved: {}", gameType);
+		logger.debug("<< addNewGameType()");
 	}
 	
 	public void addNewGameType(String gameTypeName) {
