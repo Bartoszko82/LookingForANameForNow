@@ -1,0 +1,14 @@
+{
+	"id": 12,
+	"name": "testGameIII",
+	"date": null,
+	"gameState": null,
+	"gameType": {
+		"id": 3,  
+		"typeName": "bowling",
+		"gameTypeProperties": [],
+		"games": []
+	},
+	"teams": [],
+	"rounds": []
+}
