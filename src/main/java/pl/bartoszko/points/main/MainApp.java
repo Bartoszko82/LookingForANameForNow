@@ -1,16 +1,15 @@
 package pl.bartoszko.points.main;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import pl.bartoszko.points.configuration.SpringConfiguration;
 
 public class MainApp {
 
 	public static void main(String[] args) {
 
 		
-		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfiguration.class);
-		
+//		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfiguration.class);
+//		AbstractApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 	}
 
 }
