@@ -16,7 +16,6 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class GameTypeServiceTest {
-
 	
 	@InjectMocks
 	GameTypeService gameTypeService;
@@ -65,7 +64,7 @@ public class GameTypeServiceTest {
 
 	GameType gameType = new GameType("basketball", emptyGameTypeProperties); 
 	
-	gameTypeService.addNewGameType("basketball", null);	//should I allow null here? If nor, where I should check that?
+	gameTypeService.addNewGameType("basketball", null);	//TODO should I allow null here? If not, where I should check that?
 		
 	verify(gameTypeDAO, times(1)).saveGameType(gameType);
 	}
