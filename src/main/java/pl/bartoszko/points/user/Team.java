@@ -13,13 +13,12 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.Data;
+import lombok.Setter;
 import pl.bartoszko.points.game.Game;
 import pl.bartoszko.points.round.RoundScore;
 
 @Entity
 @Table(name="team")
-@Data
 public class Team {
 
 	@Id
@@ -28,6 +27,7 @@ public class Team {
 	private int id;
 	
 	@Column(name="name")
+	@Setter
 	private String name;
 	
 	@ManyToMany
@@ -40,6 +40,7 @@ public class Team {
 	@JoinTable(name="user_team_join", 
 	joinColumns=@JoinColumn(name="team_id"),
 	inverseJoinColumns=@JoinColumn(name="user_id"))
+	@Setter
 	private List<User> users;
 	
 	@OneToMany

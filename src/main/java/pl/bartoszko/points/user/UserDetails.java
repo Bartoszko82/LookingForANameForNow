@@ -8,11 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import lombok.Data;
+import lombok.Setter;
 
 @Entity
 @Table(name="user_details")
-@Data
 public class UserDetails {
 
 	@Id
@@ -30,6 +29,7 @@ public class UserDetails {
 	private String telephone;
 	
 	@Column(name="email")
+	@Setter
 	private String email;
 	
 	@Column(name="active")
