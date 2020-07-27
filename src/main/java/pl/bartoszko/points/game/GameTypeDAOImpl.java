@@ -1,6 +1,8 @@
 
 package pl.bartoszko.points.game;
 
+import java.util.List;
+
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +16,11 @@ public class GameTypeDAOImpl extends AbstractDAO<GameType> implements GameTypeDA
 	@Override
 	public void saveGameType(GameType gameType) {
 		persist(gameType);
+	}
+	
+	@Override
+	public List<GameType> getGameTypes () {
+		return getClasses(GameType.class);
 	}
 	
 	@Override

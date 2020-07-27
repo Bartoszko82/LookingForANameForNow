@@ -1,6 +1,7 @@
 package pl.bartoszko.points.game;
 
 import java.util.Date;
+import java.util.List;
 
 public interface GameFacade {
 	
@@ -13,6 +14,10 @@ public interface GameFacade {
 	
 	public void addNewGameType(GameTypeDTO gameType);
 	
+	public List<GameTypeDTO> getGameTypes();
+	
 	public GameTypeDTO getGameType();
+
+	
 
 }

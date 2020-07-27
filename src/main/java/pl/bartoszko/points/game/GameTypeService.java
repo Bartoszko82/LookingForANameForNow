@@ -38,6 +38,10 @@ public class GameTypeService {
 		gameTypeDAO.saveGameType(gameType);
 	}
 
+	public List<GameType> getGameTypes() {
+		return gameTypeDAO.getGameTypes();
+	}
+	
 	public GameType getGameType(int id) {
 		return gameTypeDAO.getGameType(id);
 	}

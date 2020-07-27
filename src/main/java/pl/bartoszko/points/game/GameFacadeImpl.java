@@ -1,6 +1,8 @@
 package pl.bartoszko.points.game;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
@@ -46,6 +48,17 @@ public class GameFacadeImpl implements GameFacade {
 		gameTypeService.addNewGameType(convertToGameType(gameTypeDTO));
 	}
 
+	@Override
+	public List<GameTypeDTO> getGameTypes() {
+		List<GameTypeDTO> gameTypeDTOs = new ArrayList<>();
+		List<GameType> gameTypes = gameTypeService.getGameTypes();
+
+		for (GameType gt : gameTypes) {
+			gameTypeDTOs.add(convertToGameTypeDTO(gt));
+		}
+		return gameTypeDTOs;
+	}
+	
 	@Override
 	public GameTypeDTO getGameType() {
 		// TODO Auto-generated method stub
