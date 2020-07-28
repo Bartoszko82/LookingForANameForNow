@@ -60,10 +60,11 @@ public class GameFacadeImpl implements GameFacade {
 	}
 	
 	@Override
-	public GameTypeDTO getGameType() {
-		// TODO Auto-generated method stub
-		return null;
+	public GameTypeDTO getGameType(int id) {
+		return convertToGameTypeDTO(gameTypeService.getGameType(id));
 	}
+
+	
 	
 	private Game convertToGame(GameDTO gameDTO) {
 		Game game = modelMapper.map(gameDTO, Game.class);

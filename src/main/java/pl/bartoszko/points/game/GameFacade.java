@@ -16,7 +16,7 @@ public interface GameFacade {
 	
 	public List<GameTypeDTO> getGameTypes();
 	
-	public GameTypeDTO getGameType();
+	public GameTypeDTO getGameType(int id);
 
 	
 
