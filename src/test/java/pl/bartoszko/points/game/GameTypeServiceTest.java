@@ -14,6 +14,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import pl.bartoszko.points.game.entity.GameType;
+import pl.bartoszko.points.game.entity.GameTypeDAO;
+import pl.bartoszko.points.game.entity.GameTypeProperty;
+import pl.bartoszko.points.game.service.GameTypeService;
+
 @RunWith(MockitoJUnitRunner.class)
 public class GameTypeServiceTest {
 	

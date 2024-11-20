@@ -1,9 +1,10 @@
-package pl.bartoszko.points.game;
+package pl.bartoszko.points.game.entity;
 
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,17 +29,18 @@ public class GameType {
 	@Column(name="name")
 	private String typeName;
 	
-	@OneToMany(mappedBy="gameType")
-	private List<GameTypeProperty> gameTypeProperties;
+//	@OneToMany(mappedBy="gameType", fetch = FetchType.EAGER)
+//	@OneToMany(mappedBy="gameType")
+//	private List<GameTypeProperty> gameTypeProperties;
 	
-	@OneToMany(mappedBy="gameType")
+	@OneToMany(mappedBy="gameType", fetch = FetchType.EAGER)
 	private List<Game> games;
 	
 	public GameType() {}
 	
 	public GameType(String typeName, List<GameTypeProperty> gameTypeProperties) {
 		this.typeName = typeName;
-		this.gameTypeProperties = gameTypeProperties;
+//		this.gameTypeProperties = gameTypeProperties;
 	}
 	
 }

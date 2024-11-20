@@ -1,5 +1,5 @@
 package pl.bartoszko.points.game;
 
-public enum GameStates {
+public enum GameState {
 	ONGOING ,FINISHED
 }
