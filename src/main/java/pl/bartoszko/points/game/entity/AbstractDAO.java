@@ -1,4 +1,4 @@
-package pl.bartoszko.points.util;
+package pl.bartoszko.points.game.entity;
 
 import java.util.List;
 

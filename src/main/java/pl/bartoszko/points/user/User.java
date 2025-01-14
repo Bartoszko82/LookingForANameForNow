@@ -16,7 +16,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
-import pl.bartoszko.points.round.RoundScore;
+import pl.bartoszko.points.game.RoundScore;
 
 @Entity
 @Table(name="user")
