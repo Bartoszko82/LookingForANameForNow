@@ -1,6 +1,6 @@
 package pl.bartoszko.points.game;
 
-public enum GameTypePropertyKeys {
+public enum ConfigurationKeys {
 	POINTS_TO_WIN_GAME,
 	REQUIRED_ADVANTAGE,
 	NUMBER_OF_ROUNDS,

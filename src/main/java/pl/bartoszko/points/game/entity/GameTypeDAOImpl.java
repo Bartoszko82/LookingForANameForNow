@@ -1,13 +1,11 @@
 
-package pl.bartoszko.points.game;
+package pl.bartoszko.points.game.entity;
 
 import java.util.List;
 
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
-import pl.bartoszko.points.util.AbstractDAO;
 
 @Repository("gameTypeDAO")
 @Transactional
