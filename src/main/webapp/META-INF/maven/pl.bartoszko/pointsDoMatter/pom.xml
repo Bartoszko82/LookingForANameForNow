@@ -8,7 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
-		<springframework.version>5.2.22.RELEASE</springframework.version>
+		<springframework.version>6.1.14</springframework.version>
 		<log4j.version>2.17.1</log4j.version>
 		<lombok.version>1.18.4</lombok.version>
 		<modelmapper.version>2.3.6</modelmapper.version>
