@@ -1,4 +1,4 @@
-package pl.bartoszko.points.game;
+package pl.bartoszko.points.game.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +7,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import pl.bartoszko.points.game.entity.GameType;
+import pl.bartoszko.points.game.entity.GameTypeDAO;
+import pl.bartoszko.points.game.entity.GameTypeProperty;
 
 @Service("gameTypeService")
 public class GameTypeService {

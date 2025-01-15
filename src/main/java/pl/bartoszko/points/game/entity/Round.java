@@ -1,4 +1,4 @@
-package pl.bartoszko.points.round;
+package pl.bartoszko.points.game.entity;
 
 import java.util.List;
 
@@ -10,10 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
-import pl.bartoszko.points.game.Game;
+import pl.bartoszko.points.game.RoundProperty;
+import pl.bartoszko.points.game.RoundScore;
 
 @Entity
 @Table(name="round")
@@ -28,8 +30,8 @@ public class Round {
 	@Column(name="ordinal_number")
 	private int ordinalNumber;
 	
-	@ManyToOne
-	@JoinColumn(name="game_id")
+	@OneToOne
+//	@JoinColumn(name="game_id")
 	private Game game;
 	
 	@OneToMany(mappedBy="round")

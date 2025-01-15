@@ -1,4 +1,4 @@
-package pl.bartoszko.points.game;
+package pl.bartoszko.points.game.entity;
 
 public interface GameDAO {
 	

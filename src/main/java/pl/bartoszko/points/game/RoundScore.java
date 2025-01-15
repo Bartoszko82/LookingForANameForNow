@@ -1,4 +1,4 @@
-package pl.bartoszko.points.round;
+package pl.bartoszko.points.game;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
+import pl.bartoszko.points.game.entity.Round;
 import pl.bartoszko.points.user.Team;
 import pl.bartoszko.points.user.User;
 

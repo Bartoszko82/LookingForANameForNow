@@ -1,9 +1,9 @@
-package pl.bartoszko.points.game;
+package pl.bartoszko.points.game.dto;
 
 import java.util.Date;
 import java.util.List;
 
-import pl.bartoszko.points.round.RoundDTO;
+import pl.bartoszko.points.game.GameState;
 import pl.bartoszko.points.user.TeamDTO;
 
 public class GameDTO {
@@ -14,14 +14,12 @@ public class GameDTO {
 
 	private Date date;
 
-	private GameStates gameState;
+	private GameState gameState;
 	
 	private GameTypeDTO gameType;
 	
 	private List<TeamDTO> teams;
 	
-	private List<RoundDTO> rounds;
-
 	public int getId() {
 		return id;
 	}
@@ -46,11 +44,11 @@ public class GameDTO {
 		this.date = date;
 	}
 
-	public GameStates getGameState() {
+	public GameState getGameState() {
 		return gameState;
 	}
 
-	public void setGameState(GameStates gameState) {
+	public void setGameState(GameState gameState) {
 		this.gameState = gameState;
 	}
 
@@ -70,12 +68,4 @@ public class GameDTO {
 		this.teams = teams;
 	}
 
-	public List<RoundDTO> getRounds() {
-		return rounds;
-	}
-
-	public void setRounds(List<RoundDTO> rounds) {
-		this.rounds = rounds;
-	}
-	
 }

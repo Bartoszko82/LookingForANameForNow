@@ -1,6 +1,5 @@
-package pl.bartoszko.points.game;
+package pl.bartoszko.points.game.entity;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -19,7 +18,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
-import pl.bartoszko.points.round.Round;
+import pl.bartoszko.points.game.GameState;
 import pl.bartoszko.points.user.Team;
 
 @Data
@@ -40,26 +39,18 @@ public class Game {
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "game_state")
-	private GameStates gameState;
-	
+	private GameState gameState;
+
 	@ManyToOne
 	@JoinColumn(name = "game_type_id")
 	private GameType gameType;
-	
-//	@OneToMany(mappedBy="game")
-//	private List<GameResult> gameResults;
 
-//	private List<User> users; // rethink - users are in gameResults
-	
 	@ManyToMany
-	@JoinTable(name="game_team_join", 
-	joinColumns=@JoinColumn(name="game_id"),
-	inverseJoinColumns=@JoinColumn(name="team_id"))
+	@JoinTable(name = "game_team_join", joinColumns = @JoinColumn(name = "game_id"), inverseJoinColumns = @JoinColumn(name = "team_id"))
 	private List<Team> teams;
-	
+
 	@OneToMany(mappedBy = "game")
 	private List<Round> rounds;
-
 
 	public Game() {
 	};
@@ -68,22 +59,6 @@ public class Game {
 		this.name = name;
 		this.date = date;
 		this.gameType = gameType;
-		this.gameState = GameStates.ONGOING;
+		this.gameState = GameState.ONGOING;
 	}
-
-//	public void addGameResult(GameResult gameResult) {
-//		if (gameResults == null) {
-//			gameResults = new ArrayList<>();
-//		}
-//		gameResults.add(gameResult);
-//		gameResult.setGame(this);
-//	}
-
-//	public void addRound(Round round) {
-//		if (rounds == null) {
-//			rounds = new ArrayList<>();
-//		}
-//		rounds.add(round);
-//		round.setGame(this);
-//	}
 }
