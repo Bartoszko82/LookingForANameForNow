@@ -1,6 +1,5 @@
 DROP SCHEMA IF EXISTS `points_do_matter`;
 CREATE SCHEMA `points_do_matter`;
-
 USE `points_do_matter`;
 
 SET FOREIGN_KEY_CHECKS = 0;
@@ -12,10 +11,11 @@ CREATE TABLE `game` (
     `date` DATETIME NOT NULL DEFAULT NOW(),
     `game_state` VARCHAR(255) NOT NULL,
     `game_type_id` INT(11) NOT NULL,
+    `round_id` INT(11) NOT NULL,
     PRIMARY KEY (`id`),
     CONSTRAINT `FK_TYPE_IN_GAMES` FOREIGN KEY (`game_type_id`)
         REFERENCES `game_type` (`id`),
-	CONSTRAINT `UC_GAME` UNIQUE (`name`, `date`)
+	CONSTRAINT `UC_GroundroundAME` UNIQUE (`name`, `date`)
 )  ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=UTF8MB4;
 
 

@@ -1,9 +1,7 @@
-package pl.bartoszko.points.game;
+package pl.bartoszko.points.game.entity;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
-import pl.bartoszko.points.util.AbstractDAO;
 
 @Repository("gameDAO")
 @Transactional

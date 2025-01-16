@@ -14,8 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Setter;
-import pl.bartoszko.points.game.Game;
-import pl.bartoszko.points.round.RoundScore;
+import pl.bartoszko.points.game.RoundScore;
+import pl.bartoszko.points.game.entity.Game;
 
 @Entity
 @Table(name="team")
